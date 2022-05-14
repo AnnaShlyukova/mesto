@@ -18,3 +18,10 @@
   src: url(../fonts/Inter-Black.woff2),
        url(../fonts/Inter-Black.woff);
 }
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 500;
+  src: url(../fonts/Inter-Medium.woff2),
+       url(../fonts/Inter-Medium.woff);
+}

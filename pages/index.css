@@ -1,4 +1,10 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/inter.css);
-@import url(..);
+@import url(../block/page/page.css);
 
+@import url(../block/container/container.css);
+
+@import url(../block/header/header.css);
+@import url(../block/header/__logo/header__logo.css);
+
+@import url(../block/card/__image/card__image.css);

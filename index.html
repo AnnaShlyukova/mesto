@@ -5,74 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Места России</title>
-  <link rel="stylesheet" href="./"/>
+  <link rel="stylesheet" href="./pages/index.css"/>
 </head>
 <body>
   <div class="page">
-    <header class="header">
-      <img alt="Логотип место России." src="./image/logo white.svg" class="header__logo">
-    </header>
-    <main class="content">
-      <section class="profile">
-        <img alt="Аватар" src="./image/Jack.jpg" class="profile__avatar">
-        <div class="profile-info">
-          <h1 class="profile-info__name">Жак-Ив Кусто</h1>
-          <button class="profile-info__button-edit" onclick="openForm()"></button>
-          <p class="profile-info__bio">Исследователь океана</p>
-        </div>
-        <button type="button" class="profile__button-add" onclick="openForm()">
-        </button>
-      </section>
-      <section class="gallery">
-        <ul class="gallery__list">
-          <li class="gallery__item card">
-            <img src="./image/karachaevsk.jpg" alt="Замок в горах Карачаевска." class="card__image">
-            <div class="card__wrapper">
-              <h2 class="card__title">Карачаево-Черкеск</h2>
-              <button type="button" class="card__like"></button>
-            </div>
-          </li>
-          <li class="gallery__item card">
-            <img src="./image/elbrus.png" alt="Гора Эльбрус вдали." class="card__image">
-            <div class="card__wrapper">
-              <h2 class="card__title">Гора Эльбрус</h2>
-              <button type="button" class="card__like"></button>
-            </div>
-          </li>
-          <li class="gallery__item card">
-            <img src="./image/dombay.png" alt="Лесные горные склоны и снежные вершины Домбаяю" class="card__image">
-            <div class="card__wrapper">
-              <h2 class="card__title">Домбай</h2>
-              <button type="button" class="card__like"></button>
-            </div>
-          </li>
-          <li class="gallery__item card">
-            <img src="./image/baikal.jpg" alt="Байкал, побережье на фоне горных хребтов." class="card__image">
-            <div class="card__wrapper">
-              <h2 class="card__title">Байкал</h2>
-              <button type="button" class="card__like"></button>
-            </div>
-          </li>
-          <li class="gallery__item card">
-            <img src="./image/kamchatka.jpg" alt="Сопки Камчатки в облаках." class="card__image">
-            <div class="card__wrapper">
-              <h2 class="card__title">Камчатка</h2>
-              <button type="button" class="card__like"></button>
-            </div>
-          </li>
-          <li class="gallery__item card">
-            <img src="./image/kostovaty.jpg" alt="Избушка в сосновом лесу." class="card__image">
-            <div class="card__wrapper">
-              <h2 class="card__title">Костоваты</h2>
-              <button type="button" class="card__like"></button>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </main>
-    <footer class="footer">
-      <p class="footer__copyright">©&nbsp;2022 Mesto Russia</p>
-    </footer>
-    <div class="popup"></div>
+    <div class="container">
+      <header class="header">
+        <img alt="Логотип место России." src="./image/logo white.svg" class="header__logo">
+      </header>
+      <main class="content">
+        <section class="profile">
+          <img alt="Аватар" src="./image/Jack.jpg" class="profile__avatar">
+          <div class="profile-info">
+            <h1 class="profile-info__name">Жак-Ив Кусто</h1>
+            <button class="profile-info__button-edit" onclick="openForm()"></button>
+            <p class="profile-info__bio">Исследователь океана</p>
+          </div>
+          <button type="button" class="profile__button-add" onclick="openForm()">
+          </button>
+        </section>
+        <section class="gallery">
+          <ul class="gallery__list">
+            <li class="gallery__item card">
+              <img src="./image/karachaevsk.jpg" alt="Замок в горах Карачаевска." class="card__image">
+              <div class="card__wrapper">
+                <h2 class="card__title">Карачаево-Черкеск</h2>
+                <button type="button" class="card__like"></button>
+              </div>
+             </li>
+            <li class="gallery__item card">
+              <img src="./image/elbrus.png" alt="Гора Эльбрус вдали." class="card__image">
+              <div class="card__wrapper">
+                <h2 class="card__title">Гора Эльбрус</h2>
+                <button type="button" class="card__like"></button>
+             </div>
+            </li>
+            <li class="gallery__item card">
+              <img src="./image/dombay.png" alt="Лесные горные склоны и снежные вершины Домбаяю" class="card__image">
+              <div class="card__wrapper">
+                <h2 class="card__title">Домбай</h2>
+                <button type="button" class="card__like"></button>
+              </div>
+            </li>
+            <li class="gallery__item card">
+              <img src="./image/baikal.jpg" alt="Байкал, побережье на фоне горных хребтов." class="card__image">
+              <div class="card__wrapper">
+                <h2 class="card__title">Байкал</h2>
+                <button type="button" class="card__like"></button>
+              </div>
+            </li>
+            <li class="gallery__item card">
+              <img src="./image/kamchatka.jpg" alt="Сопки Камчатки в облаках." class="card__image">
+              <div class="card__wrapper">
+                <h2 class="card__title">Камчатка</h2>
+                <button type="button" class="card__like"></button>
+              </div>
+            </li>
+            <li class="gallery__item card">
+              <img src="./image/kostovaty.jpg" alt="Избушка в сосновом лесу." class="card__image">
+              <div class="card__wrapper">
+                <h2 class="card__title">Костоваты</h2>
+                <button type="button" class="card__like"></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">©&nbsp;2022 Mesto Russia</p>
+      </footer>
+      <div class="popup"></div>
+    </div>
   </div>
 </body>
+</html>
