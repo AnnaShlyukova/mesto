@@ -2,3 +2,10 @@
   border-bottom: 1px solid #545454;
   box-sizing: border-box;
 }
+
+@media (min-width: 320px) {
+  .header {
+    min-width: 320px;
+    margin: 0 -19px;
+  }
+}

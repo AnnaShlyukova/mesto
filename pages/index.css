@@ -8,3 +8,6 @@
 @import url(../block/header/__logo/header__logo.css);
 
 @import url(../block/card/__image/card__image.css);
+
+@import url(../block/footer/footer.css);
+@import url(../block/footer/__copyright/footer__copyright.css);
