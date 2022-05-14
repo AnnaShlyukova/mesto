@@ -1,0 +1,19 @@
+.card__like {
+  display: block;
+  background-image: url(../../../image/white_heart.svg);
+  width: 22px;
+  height: 19px;
+  outline: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: white;
+  border: none;
+  flex-shrink: 0;
+  transition: opacity .5s linear;
+  cursor: pointer;
+}
+
+.card__like:hover {
+  opacity: .5;
+}
