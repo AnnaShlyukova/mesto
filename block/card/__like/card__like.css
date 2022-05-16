@@ -1,13 +1,9 @@
 .card__like {
   display: block;
-  background-image: url(../../../image/white_heart.svg);
+  background: url(../../../image/white_heart.svg) white center/cover no-repeat;
   width: 22px;
   height: 19px;
   outline: none;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: white;
   border: none;
   flex-shrink: 0;
   transition: opacity .5s linear;
