@@ -18,10 +18,10 @@
           <img alt="Аватар" src="./image/Jack.jpg" class="profile__avatar">
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="profile__button-edit" onclick="openForm()"></button>
+            <button class="profile__button-edit profile__button-edit_open-popup"></button>
             <p class="profile__bio">Исследователь океана</p>
           </div>
-          <button type="button" class="profile__button-add" onclick="openForm()">
+          <button type="button" class="profile__button-add">
           </button>
         </section>
         <section class="gallery">
@@ -74,19 +74,19 @@
       <footer class="footer">
         <p class="footer__copyright">©&nbsp;2022 Mesto Russia</p>
       </footer>
-      <section class="popup popup__opened">
+      <section class="popup">
         <div class="popup__container">
           <button class="popup__button-close" type="button"></button>
-          <form class="popup__form" id="popup-form">
+          <form class="popup__form">
             <h3 class="popup__title">Редактировать профиль</h3>
-            <input class="popup__input" type="text" id="popupName">
-            <input class="popup__input" type="text" id="popupBio">
+            <input class="popup__input popup__input_type_name" name="profile__name" type="text">
+            <input class="popup__input popup__input_type_bio" name="profile__bio" type="text">
             <button class="popup__button-save" type="submit">Сохранить</button>
           </form>
         </div>
       </section>
     </div>
   </div>
-  <script src=""></script>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>
