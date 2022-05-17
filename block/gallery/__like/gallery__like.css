@@ -1,4 +1,4 @@
-.card__like {
+.gallery__like {
   display: block;
   background: url(../../../image/white_heart.svg) white center/cover no-repeat;
   width: 22px;
@@ -10,6 +10,6 @@
   cursor: pointer;
 }
 
-.card__like:hover {
+.gallery__like:hover {
   opacity: .5;
 }
