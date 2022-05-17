@@ -30,4 +30,4 @@ Mesto - интерактивный одностраничный сайт с ад
 
 ---
 
-[Проект Mesto](https://git@github.com:AnnaShlyukova/mesto.git/index.html)
+[Проект Mesto](https://annashlyukova.github.io/mesto//index.html)
