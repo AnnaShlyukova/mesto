@@ -1,11 +1,11 @@
 .profile__info {
-margin-left: 30px;
-display: grid;
-grid-template-columns: repeat(2, max-content);
-align-items: center;
-row-gap: 16px;
-column-gap: 18px;
-grid-area: 1/2/3/3;
+  margin-left: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  align-items: center;
+  row-gap: 16px;
+  column-gap: 18px;
+  grid-area: 1/2/3/3;
 }
 
 @media screen and (max-width: 910px) {

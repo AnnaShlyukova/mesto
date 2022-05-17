@@ -1,9 +1,9 @@
 .container {
-display: flex;
-flex-direction: column;
-max-width: 880px;
-width: calc(282px + (880 - 282) * ((100vw - 320px) / (1280 - 320)));
-padding-top: calc(28px + (45 - 28) * ((100vw - 320px) / (1280 - 320)));
-padding-bottom: calc(36px + (60 - 36) * ((100vw - 320px) / (1280 - 320)));
-margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 880px;
+  width: calc(282px + (880 - 282) * ((100vw - 320px) / (1280 - 320)));
+  padding-top: calc(28px + (45 - 28) * ((100vw - 320px) / (1280 - 320)));
+  padding-bottom: calc(36px + (60 - 36) * ((100vw - 320px) / (1280 - 320)));
+  margin: 0 auto;
 }

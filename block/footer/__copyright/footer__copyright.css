@@ -1,15 +1,15 @@
 .footer__copyright {
-margin: 0;
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 22px;
-color: #545454;
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
 }
 
 @media (min-width: 320px) {
   .footer__copyright {
-  font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1280 - 320)));
-  line-height: calc(17px + (22 - 17) * ((100vw - 320px) / (1280 - 320)));
+    font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1280 - 320)));
+    line-height: calc(17px + (22 - 17) * ((100vw - 320px) / (1280 - 320)));
   }
 }

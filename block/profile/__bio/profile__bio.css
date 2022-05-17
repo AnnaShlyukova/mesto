@@ -1,14 +1,14 @@
 .profile__bio {
   margin: 0;
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 22px;
-color: #FFFFFF;
-max-width: 294px;
-overflow: hidden;
-text-align: start;
-white-space: nowrap;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
+  max-width: 294px;
+  overflow: hidden;
+  text-align: start;
+  white-space: nowrap;
 }
 
 @media screen and (max-width: 799px) {

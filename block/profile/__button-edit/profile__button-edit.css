@@ -1,18 +1,18 @@
 .profile__button-edit {
   padding: 0;
-background-image: url(../../../image/pen.svg);
-background-color: black;
-background-repeat: no-repeat;
-background-position: 50%;
-width: 24px;
-height: 24px;
-border: 1px solid #FFFFFF;
-transition: opacity .5s linear;
-cursor: pointer;
+  background-image: url(../../../image/pen.svg);
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #FFFFFF;
+  transition: opacity .5s linear;
+  cursor: pointer;
 }
 
 .profile__button-edit:hover {
-opacity: .5;
+  opacity: .5;
 }
 
 @media screen and (max-width: 799px) {
