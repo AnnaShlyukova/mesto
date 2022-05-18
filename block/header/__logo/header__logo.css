@@ -9,6 +9,7 @@
   .header__logo {
     width: calc(103.74px + (142 - 103.74) * ((100vw - 320px) / (1280 - 320)));
     height: calc(24.4px + (33 - 24.4) * ((100vw - 320px) / (1280 - 320)));
-    padding-left: 27px;
+    padding:0 0 28px 27px;
+
   }
 }

@@ -9,10 +9,15 @@ let nameInput = document.querySelector('.popup__input_type_name');
 let bioInput = document.querySelector('.popup__input_type_bio');
 
 // функция открытия попапа с прописанными значениями из профиля
-function togglePopup (){
-  popup.classList.toggle('popup__opened');
+function togglePopup () {
+  popup.classList.toggle('popup_opened')
+  if (popup.classList.contains('popup_opened')) {
   nameInput.value = profileName.textContent;
   bioInput.value = profileBio.textContent;
+} else {
+  nameInput.value = profileName;
+  bioInput.value = profileBio;
+}
 }
 
 // функция обновления информации после внесения изменений в форму

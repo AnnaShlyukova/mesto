@@ -11,15 +11,14 @@
   <div class="page">
     <div class="container">
       <header class="header">
-        <img alt="Логотип место России." src="./image/logo_white.svg" class="header__logo">
+        <a href="#" target="_blank" class="header__link"><img alt="Логотип место России." src="./image/logo_white.svg" class="header__logo"></a>
       </header>
       <main class="main">
-        <h1 class="title">Проект Место</h1>
         <section class="profile">
           <img alt="Аватар" src="./image/Jack.jpg" class="profile__avatar">
           <div class="profile__info">
-            <h2 class="profile__name">Жак-Ив Кусто</h2>
-            <button class="profile__button-edit profile__button-edit_open-popup"></button>
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__button-edit profile__button-edit_open-popup"></button>
             <p class="profile__bio">Исследователь океана</p>
           </div>
           <button type="button" class="profile__button-add">
@@ -78,7 +77,7 @@
       <section class="popup">
         <div class="popup__container">
           <button class="popup__button-close" type="button"></button>
-          <form class="popup__form">
+          <form name="profile-form" action="#" method="post" class="popup__form">
             <h3 class="popup__title">Редактировать профиль</h3>
             <input class="popup__input popup__input_type_name" name="profile__name" type="text">
             <input class="popup__input popup__input_type_bio" name="profile__bio" type="text">
