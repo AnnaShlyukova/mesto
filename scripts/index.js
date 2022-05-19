@@ -14,9 +14,6 @@ function togglePopup () {
   if (popup.classList.contains('popup_opened')) {
   nameInput.value = profileName.textContent;
   bioInput.value = profileBio.textContent;
-} else {
-  nameInput.value = profileName;
-  bioInput.value = profileBio;
 }
 }
 
