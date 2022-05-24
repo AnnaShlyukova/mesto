@@ -1,6 +1,7 @@
 .gallery__item {
   margin: 0 auto;
   padding: 0;
+  position: relative;
   border-radius: 10px;
   background: #FFFFFF;
   width: 282px;

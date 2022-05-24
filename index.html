@@ -26,48 +26,6 @@
         </section>
         <section class="gallery">
           <ul class="gallery__list">
-            <li class="gallery__item">
-              <img src="./image/karachaevsk.jpg" alt="Замок в горах Карачаевска." class="gallery__image">
-              <div class="gallery__wrapper">
-                <h2 class="gallery__title">Карачаево-Черкеск</h2>
-                <button type="button" class="gallery__like"></button>
-              </div>
-             </li>
-            <li class="gallery__item">
-              <img src="./image/elbrus.png" alt="Гора Эльбрус вдали." class="gallery__image">
-              <div class="gallery__wrapper">
-                <h2 class="gallery__title">Гора Эльбрус</h2>
-                <button type="button" class="gallery__like"></button>
-             </div>
-            </li>
-            <li class="gallery__item">
-              <img src="./image/dombay.png" alt="Лесные горные склоны и снежные вершины Домбаяю" class="gallery__image">
-              <div class="gallery__wrapper">
-                <h2 class="gallery__title">Домбай</h2>
-                <button type="button" class="gallery__like"></button>
-              </div>
-            </li>
-            <li class="gallery__item">
-              <img src="./image/baikal.jpg" alt="Байкал, побережье на фоне горных хребтов." class="gallery__image">
-              <div class="gallery__wrapper">
-                <h2 class="gallery__title">Байкал</h2>
-                <button type="button" class="gallery__like"></button>
-              </div>
-            </li>
-            <li class="gallery__item">
-              <img src="./image/kamchatka.jpg" alt="Сопки Камчатки в облаках." class="gallery__image">
-              <div class="gallery__wrapper">
-                <h2 class="gallery__title">Камчатка</h2>
-                <button type="button" class="gallery__like"></button>
-              </div>
-            </li>
-            <li class="gallery__item">
-              <img src="./image/kostovaty.jpg" alt="Избушка в сосновом лесу." class="gallery__image">
-              <div class="gallery__wrapper">
-                <h2 class="gallery__title">Костоваты</h2>
-                <button type="button" class="gallery__like"></button>
-              </div>
-            </li>
           </ul>
         </section>
       </main>
@@ -87,6 +45,16 @@
       </section>
     </div>
   </div>
+  <template id="gallery-template">
+    <li class="gallery__item">
+      <img src="" alt="" class="gallery__image">
+      <div class="gallery__wrapper">
+        <h2 class="gallery__title"></h2>
+        <button type="button" class="gallery__like"></button>
+      </div>
+      <button type="button" class="gallery__button-delete"></button>
+     </li>
+    </template>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
