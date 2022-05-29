@@ -63,6 +63,7 @@ function likeButtonItem (event) {
   buttonElement.classList.toggle('gallery__like_active');
 }
 
+
 /* функция открытия попапа с прописанными значениями из профиля*/
 function OpenPopupProfile (event) {
   popupProfile.classList.add('popup_opened');
@@ -79,7 +80,11 @@ function openPopupGallery(event) {
 /*функция открытия попапа просмотра фото*/
 function openPopupImage(event) {
   popupImage.classList.add('popup_opened');
+  popupImage.querySelector('.popup__image').src = `${event.target.src}`;
+  popupImage.querySelector('.popup__image').alt = `${event.target.alt}`;
+  popupImage.querySelector('.popup__image-caption').textContent = `${event.target.alt}`;
 }
+
 
 // слушатели событий открытия попапа, сохранения изменений в попапе
 openButton.addEventListener('click', OpenPopupProfile);
@@ -96,14 +101,8 @@ function createItem(data) {
   buttonlikeElement.addEventListener('click', likeButtonItem); /*ставим лайк*/
   let buttondeletElement = itemElement.querySelector(".gallery__button-delete");/*удаляем фото*/
   buttondeletElement.addEventListener('click', deleteButtonItem);
-
 /*открываем попап с картинкой*/
-  itemElement.querySelector(".gallery__image").addEventListener('click', function (event){
-    openPopupImage();
-    popupImage.querySelector('.popup__image').src = `${event.target.src}`;
-    popupImage.querySelector('.popup__image').alt = `${event.target.alt}`;
-    popupImage.querySelector('.popup__image-caption').textContent = `${event.target.alt}`;
-  });
+  itemElement.querySelector(".gallery__image").addEventListener('click', openPopupImage);
   return itemElement;
 }
 
@@ -126,7 +125,7 @@ function formAddImage(event) {
   const name = nameGalleryInput.value;
   const link = linkGalleryInput.value;
   /*задаю условие  для запрета пустого ввода*/
-  if (name || link === "") {
+  if (name && name.trim(" ") ==="" || link && link.trim(" ") ==="") {
     alert('wrong or empty input');
     return;
   }
