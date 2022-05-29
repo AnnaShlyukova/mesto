@@ -5,6 +5,5 @@
   object-fit: cover;
   object-position: center;
   max-width: 75vw;
-  height: calc(100% - 25px);
   max-height: 75vh;
 }
