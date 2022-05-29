@@ -28,9 +28,9 @@ const initialCards = [
 
 // задаю переменные
 const popups = document.querySelectorAll('.popup');
-const popupProfile = document.querySelector('.popup__profile');
-const popupGallery = document.querySelector('.popup__gallery');
-const popupImage = document.querySelector('.popup__image-view');
+const popupProfile = document.querySelector('.popup_content_profile');
+const popupGallery = document.querySelector('.popup_content_gallery');
+const popupImage = document.querySelector('.popup_content_image-view');
 
 const nameGalleryInput = document.querySelector('#gallery-name');
 const linkGalleryInput = document.querySelector('#gallery-link');
