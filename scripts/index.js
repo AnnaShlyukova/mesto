@@ -159,9 +159,21 @@ popups.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('popup_opened')) {
       closePopup(popup);
+<<<<<<< HEAD
     };
     if (evt.target.classList.contains('popup__button-close')){
       closePopup(popup);
     };
   })
 })
+=======
+    }
+  });
+});
+
+// слушатели событий сохранения изменений в попапе
+formElement.addEventListener("submit", handleProfileSubmit);
+
+/*слушатель добавления фото через форму*/
+popupGallery.addEventListener("submit", addImage);
+>>>>>>> developclear
