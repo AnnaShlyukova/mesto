@@ -129,8 +129,8 @@ popups.forEach((popup) => {
   });
 });
 
-/*слушатель добавления фото через форму*/
-popupGallery.addEventListener("submit", addImage);
-
 // слушатели событий сохранения изменений в попапе
 formElement.addEventListener("submit", handleProfileSubmit);
+
+/*слушатель добавления фото через форму*/
+popupGallery.addEventListener("submit", addImage);
