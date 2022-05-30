@@ -1,32 +1,110 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Места России</title>
-  <link rel="stylesheet" href="./pages/index.css"/>
-</head>
-<body>
-  <div class="page">
-    <div class="container">
-      <header class="header">
-        <a href="#" target="_blank" class="header__link"><img alt="Логотип место России." src="./image/logo_white.svg" class="header__logo"></a>
-      </header>
-      <main class="main">
-        <section class="profile">
-          <img alt="Аватар" src="./image/Jack.jpg" class="profile__avatar">
-          <div class="profile__info">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button type="button" class="profile__button-edit profile__button-edit_open-popup"></button>
-            <p class="profile__bio">Исследователь океана</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Места России</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="container">
+        <header class="header">
+          <a href="#" target="_blank" class="header__link"
+            ><img
+              alt="Логотип место России."
+              src="./image/logo_white.svg"
+              class="header__logo"
+          /></a>
+        </header>
+        <main class="main">
+          <section class="profile">
+            <img alt="Аватар" src="./image/Jack.jpg" class="profile__avatar" />
+            <div class="profile__info">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button
+                type="button"
+                class="profile__button-edit profile__button-edit_open-popup"
+              ></button>
+              <p class="profile__bio">Исследователь океана</p>
+            </div>
+            <button
+              type="button"
+              class="profile__button-add profile__button-add_open-popup"
+            ></button>
+          </section>
+          <section class="gallery">
+            <ul class="gallery__list"></ul>
+          </section>
+        </main>
+        <footer class="footer">
+          <p class="footer__copyright">©&nbsp;2022 Mesto Russia</p>
+        </footer>
+        <!--попап редактирования профиля-->
+        <section class="popup popup__profile">
+          <div class="popup__container">
+            <button class="popup__button-close" type="button"></button>
+            <form
+              name="profile-form"
+              action="#"
+              method="post"
+              class="popup__form"
+            >
+              <h3 class="popup__title">Редактировать профиль</h3>
+              <input
+                class="popup__input popup__input_type_name"
+                id="profile-name"
+                name="profile__name"
+                type="text"
+              />
+              <input
+                class="popup__input popup__input_type_bio"
+                id="profile-bio"
+                name="profile__bio"
+                type="text"
+              />
+              <button class="popup__button-save" type="submit">
+                Сохранить
+              </button>
+            </form>
           </div>
-          <button type="button" class="profile__button-add profile__button-add_open-popup">
-          </button>
         </section>
-        <section class="gallery">
-          <ul class="gallery__list">
-          </ul>
+        <!--попап добавления новых картинок-->
+        <section class="popup popup__gallery">
+          <div class="popup__container">
+            <button class="popup__button-close" type="button"></button>
+            <form name="add__item" action="#" method="post" class="popup__form">
+              <h3 class="popup__title">Новое место</h3>
+              <input
+                class="popup__input popup__input_type_name"
+                id="gallery-name"
+                name="gallery__name"
+                type="text"
+                placeholder="Название"
+                required
+              />
+              <input
+                class="popup__input popup__input_type_link"
+                id="gallery-link"
+                name="gallery__link"
+                type="url"
+                placeholder="Ссылка на картинку"
+                required
+              />
+              <button class="popup__button-save" type="submit">Создать</button>
+            </form>
+          </div>
+        </section>
+        <!--попап просмотра картинки-->
+        <section class="popup popup__image-view">
+          <div class="popup__card">
+            <button class="popup__button-close" type="button"></button>
+            <figure class="popup__figure">
+              <img src="#" alt=" " class="popup__image" />
+              <figcaption class="popup__image-caption"></figcaption>
+            </figure>
+          </div>
         </section>
       </main>
       <footer class="footer">
@@ -75,9 +153,18 @@
         <h2 class="gallery__title"></h2>
         <button type="button" class="gallery__like"></button>
       </div>
-      <button type="button" class="gallery__button-delete"></button>
-     </li>
+    </div>
+    <template id="gallery-template">
+      <li class="gallery__item">
+        <img src="" alt="" class="gallery__image" />
+        <div class="gallery__wrapper">
+          <h2 class="gallery__title"></h2>
+          <button type="button" class="gallery__like"></button>
+        </div>
+        <button type="button" class="gallery__button-delete"></button>
+      </li>
     </template>
-  <script src="./scripts/index.js"></script>
-</body>
+    <script src="./scripts/cards.js"></script>
+    <script src="./scripts/index.js"></script>
+  </body>
 </html>
