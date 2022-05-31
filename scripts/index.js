@@ -50,7 +50,7 @@ function openPopupGallery(event) {
 /*функция открытия попапа просмотра фото*/
 function openPopupImage(data) {
   openPopup(popupImage);
-  let imageElement = popupImage.querySelector(".popup__image");
+  const imageElement = popupImage.querySelector(".popup__image");
   imageElement.src = data.link;
   imageElement.alt = data.name;
   popupImage.querySelector(".popup__image-caption").textContent = data.name;
@@ -75,9 +75,7 @@ function createItem(data) {
   ); /*удаляем фото*/
   buttonDeletElement.addEventListener("click", deleteButtonItem);
   /*открываем попап с картинкой*/
-  itemElement
-    .querySelector(".gallery__image")
-    .addEventListener("click", () => openPopupImage(data));
+  galleryImage.addEventListener("click", () => openPopupImage(data));
   return itemElement;
 }
 
