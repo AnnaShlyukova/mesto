@@ -40,3 +40,5 @@
 @import url(../block/popup/__figure/popup__figure.css);
 @import url(../block/popup/__image/popup__image.css);
 @import url(../block/popup/__image-caption/popup__image-caption.css);
+@import url(../block/popup/__error/popup__error.css);
+@import url(../block/popup/__error/_visible/popup__error_visible.css);
