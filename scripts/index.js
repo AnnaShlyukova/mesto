@@ -3,21 +3,24 @@ const popups = document.querySelectorAll(".popup");
 const popupProfile = document.querySelector(".popup_content_profile");
 const popupGallery = document.querySelector(".popup_content_gallery");
 const popupImage = document.querySelector(".popup_content_image-view");
-
-const nameGalleryInput = document.querySelector("#gallery-name");
-const linkGalleryInput = document.querySelector("#gallery-link");
-const nameInput = document.querySelector("#profile-name");
-const bioInput = document.querySelector("#profile-bio");
-
-const formElement = document.querySelector(".popup__form");
 const profileName = document.querySelector(".profile__name");
 const profileBio = document.querySelector(".profile__bio");
+const errorClass = document.querySelector(".popup__error_visible");
 
 const buttonOpen = document.querySelector(".profile__button-edit_open-popup");
 const buttonAdd = document.querySelector(".profile__button-add_open-popup");
+const buttonSave = document.querySelector(".popup__button-save");
 
 const listElement = document.querySelector(".gallery__list");
 const galleryTemplate = document.querySelector("#gallery-template").content;
+
+const formEdit = document.forms.profileForm;
+const nameInput = formEdit.elements.nameInput;
+const bioInput = formEdit.elements.bioInput;
+
+const formAdd = document.forms.addForm;
+const nameGalleryInput = formAdd.elements.nameGalleryInput;
+const linkGalleryInput = formAdd.elements.linkGalleryInput;
 
 //функция удаления фото
 function deleteButtonItem(event) {
@@ -47,7 +50,7 @@ function closePopup(item) {
 }
 
 popups.forEach((popup) => {
-  popup.addEventListener("click", (evt) => {
+  popup.addEventListener("mousedown", (evt) => {
     if (
       evt.target.classList.contains("popup_opened") ||
       evt.target.classList.contains("popup__button-close")
@@ -64,13 +67,15 @@ function openPopup(item) {
 }
 
 //функция открытия попапа с прописанными значениями из профиля
-function openPopupProfile(event) {
+function openPopupProfile() {
+  formEdit.reset();
   openPopup(popupProfile);
   nameInput.value = profileName.textContent;
   bioInput.value = profileBio.textContent;
 }
 //функция открытия попапа для добавления фото
 function openPopupGallery(event) {
+  formAdd.reset();
   openPopup(popupGallery);
 }
 
@@ -140,14 +145,8 @@ buttonAdd.addEventListener("click", openPopupGallery);
 //слушатель добавления фото через форму
 popupGallery.addEventListener("submit", addImage);
 // слушатели событий сохранения изменений в попапе
-formElement.addEventListener("submit", handleProfileSubmit);
+formEdit.addEventListener("submit", handleProfileSubmit);
 
 //валидация
-enableValidation({
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-});
+
+enableValidation(validationSelectors);

@@ -46,7 +46,7 @@
           <div class="popup__container">
             <button class="popup__button-close" type="button"></button>
             <form
-              name="profile-form"
+              name="profileForm"
               action="#"
               method="post"
               class="popup__form"
@@ -54,29 +54,28 @@
               <h3 class="popup__title">Редактировать профиль</h3>
               <input
                 class="popup__input popup__input_type_name"
-                id="profile-name"
-                name="profile__name"
+                id="name"
+                name="nameInput"
                 type="text"
                 minlength="2"
                 maxlength="40"
                 required
               />
-              <span class="popup__error" id="name-error"
-                >Вы пропустили это поле.</span
-              >
+              <span class="popup__error" id="name-error"></span>
               <input
                 class="popup__input popup__input_type_bio"
-                id="profile-bio"
-                name="profile__bio"
+                id="bio"
+                name="bioInput"
                 type="text"
                 minlength="2"
                 maxlength="200"
                 required
               />
-              <span class="popup__error" id="bio-error"
-                >Вы пропустили это поле.</span
+              <span class="popup__error" id="bio-error"></span>
+              <button
+                class="popup__button-save popup__button_disabled"
+                type="submit"
               >
-              <button class="popup__button-save" type="submit">
                 Сохранить
               </button>
             </form>
@@ -86,33 +85,34 @@
         <section class="popup popup_content_gallery">
           <div class="popup__container">
             <button class="popup__button-close" type="button"></button>
-            <form name="add__item" action="#" method="post" class="popup__form">
+            <form name="addForm" action="#" method="post" class="popup__form">
               <h3 class="popup__title">Новое место</h3>
               <input
                 class="popup__input popup__input_type_name"
-                id="gallery-name"
-                name="gallery__name"
+                id="gallery"
+                name="nameGalleryInput"
                 type="text"
                 placeholder="Название"
                 minlength="2"
                 maxlength="30"
                 required
               />
-              <span class="popup__error" id="gallery-error"
-                >Вы пропустили это поле.</span
-              >
+              <span class="popup__error" id="gallery-error"></span>
               <input
                 class="popup__input popup__input_type_link"
-                id="gallery-link"
-                name="gallery__link"
+                id="link"
+                name="linkGalleryInput"
                 type="url"
                 placeholder="Ссылка на картинку"
                 required
               />
-              <span class="popup__error" id="link-error"
-                >Введите адрес сайта.</span
+              <span class="popup__error" id="link-error"></span>
+              <button
+                class="popup__button-save popup__button_disabled"
+                type="submit"
               >
-              <button class="popup__button-save" type="submit">Создать</button>
+                Создать
+              </button>
             </form>
           </div>
         </section>
