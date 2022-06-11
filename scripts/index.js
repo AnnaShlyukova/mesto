@@ -9,7 +9,7 @@ const errorClass = document.querySelector(".popup__error_visible");
 
 const buttonOpen = document.querySelector(".profile__button-edit_open-popup");
 const buttonAdd = document.querySelector(".profile__button-add_open-popup");
-const buttonSave = document.querySelector(".popup__button-save");
+const buttonSave = document.querySelector(".popup__button");
 
 const listElement = document.querySelector(".gallery__list");
 const galleryTemplate = document.querySelector("#gallery-template").content;
