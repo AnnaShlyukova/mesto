@@ -7,6 +7,7 @@ const validationSelectors = {
   errorClass: "popup__error_visible",
 };
 
+//функция отображения ошибки
 const showInputError = (
   formElement,
   inputElement,
@@ -19,6 +20,7 @@ const showInputError = (
   errorElement.textContent = errorMessage;
 };
 
+//функция срытия ошибки
 const hideInputError = (formElement, inputElement, formSettings) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.remove(formSettings.inputErrorClass);
@@ -27,7 +29,7 @@ const hideInputError = (formElement, inputElement, formSettings) => {
 
 //функция проверки корректности введенных данных
 const checkInputValidity = (formElement, inputElement, formSettings) => {
-  //если поле не валидно
+  //если поле не валидно, то показываем ошибку
   if (!inputElement.validity.valid) {
     showInputError(
       formElement,
@@ -35,6 +37,7 @@ const checkInputValidity = (formElement, inputElement, formSettings) => {
       inputElement.validationMessage,
       formSettings
     );
+    //иначе скрываем ошибку
   } else {
     hideInputError(formElement, inputElement, formSettings);
   }
@@ -53,8 +56,10 @@ const hasInvalidInput = (inputList) => {
 const toggleButtonState = (inputList, buttonElement, formSettings) => {
   //если есть хотя бы одно невалидное поле делаем кнопку неактивной
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(formSettings.inactiveButtonClass);
-    buttonElement.setAttribute("disabled", true);
+    if (!buttonElement.classList.contains(formSettings.inactiveButtonClass)) {
+      buttonElement.classList.add(formSettings.inactiveButtonClass);
+      buttonElement.setAttribute("disabled", true);
+    }
   } else {
     //если все валидно, то делаем активной
     buttonElement.removeAttribute("disabled");
@@ -62,9 +67,33 @@ const toggleButtonState = (inputList, buttonElement, formSettings) => {
   }
 };
 
-//задаем функцию которая добавляет обработчики сразу всем полям формы
+//удаляем ошибки из формы и делаем кнопку неактивной
+const clearError = (formElement, buttonElement, formSettings) => {
+  const errorSpan = formElement.querySelectorAll(`.${formSettings.errorClass}`);
+  const errorInputs = formElement.querySelectorAll(
+    `.${formSettings.inputErrorClass}`
+  );
+  clearClassError(errorSpan, formSettings.errorClass);
+  clearClassError(errorInputs, formSettings.inputErrorClass);
+  inactiveButton(buttonElement, formSettings);
+};
+
+//удаляем класс ошибки с элементов
+const clearClassError = (elements, className) => {
+  elements.forEach((span) => {
+    span.classList.remove(className);
+  });
+};
+
+//делаем кнопку неактивной
+function inactiveButton(buttonElement, formSettings) {
+  buttonElement.classList.add(formSettings.inactiveButtonClass);
+  buttonElement.setAttribute("disabled", "disabled");
+}
+
+//задаем функцию, которая добавляет обработчики сразу всем полям формы
 const setEventListeners = (formElement, formSettings) => {
-  //находим все поля внутри формы и делаю из них массив
+  //находим все поля внутри формы и делаем из них массив
   const inputList = Array.from(
     formElement.querySelectorAll(formSettings.inputSelector)
   );
@@ -82,6 +111,10 @@ const setEventListeners = (formElement, formSettings) => {
       toggleButtonState(inputList, buttonElement, formSettings);
     });
   });
+  //добавляем слушателя событий на форму для очистки ошибок и отключения кнопки
+  formElement.addEventListener("reset", () =>
+    clearError(formElement, buttonElement, formSettings)
+  );
 };
 
 //функция валидации формы

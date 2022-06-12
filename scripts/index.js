@@ -5,7 +5,9 @@ const popupGallery = document.querySelector(".popup_content_gallery");
 const popupImage = document.querySelector(".popup_content_image-view");
 const profileName = document.querySelector(".profile__name");
 const profileBio = document.querySelector(".profile__bio");
-const errorClass = document.querySelector(".popup__error_visible");
+const errorClass = document.querySelector(".popup__input_type_error");
+const imageElement = popupImage.querySelector(".popup__image");
+const imageCaption = popupImage.querySelector(".popup__image-caption");
 
 const buttonOpen = document.querySelector(".profile__button-edit_open-popup");
 const buttonAdd = document.querySelector(".profile__button-add_open-popup");
@@ -82,10 +84,9 @@ function openPopupGallery(event) {
 //функция открытия попапа просмотра фото
 function openPopupImage(data) {
   openPopup(popupImage);
-  const imageElement = popupImage.querySelector(".popup__image");
   imageElement.src = data.link;
   imageElement.alt = data.name;
-  popupImage.querySelector(".popup__image-caption").textContent = data.name;
+  imageCaption.textContent = data.name;
 }
 
 function createItem(data) {
@@ -127,7 +128,7 @@ function addImage(event) {
   const link = linkGalleryInput.value;
   renderItem(createItem({ name, link }));
   closePopup(popupGallery);
-  /*сбрасываем значения полей формы после ее закрытия*/
+  //сбрасываем значения полей формы после ее закрытия*/
   event.target.reset();
 }
 
