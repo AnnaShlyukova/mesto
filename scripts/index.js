@@ -5,13 +5,11 @@ const popupGallery = document.querySelector(".popup_content_gallery");
 const popupImage = document.querySelector(".popup_content_image-view");
 const profileName = document.querySelector(".profile__name");
 const profileBio = document.querySelector(".profile__bio");
-const errorClass = document.querySelector(".popup__input_type_error");
 const imageElement = popupImage.querySelector(".popup__image");
 const imageCaption = popupImage.querySelector(".popup__image-caption");
 
 const buttonOpen = document.querySelector(".profile__button-edit_open-popup");
 const buttonAdd = document.querySelector(".profile__button-add_open-popup");
-const buttonSave = document.querySelector(".popup__button");
 
 const listElement = document.querySelector(".gallery__list");
 const galleryTemplate = document.querySelector("#gallery-template").content;
