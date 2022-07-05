@@ -1,18 +1,23 @@
+// Импорт классов
+
+import { Card } from "./Card.js";
+import { initialCards } from "./cards.js";
+import { FormValidator } from "./FormValidator.js";
+
 //задаю переменные
 const popups = document.querySelectorAll(".popup");
 const popupProfile = document.querySelector(".popup_content_profile");
 const popupGallery = document.querySelector(".popup_content_gallery");
-const popupImage = document.querySelector(".popup_content_image-view");
+export const popupImage = document.querySelector(".popup_content_image-view");
 const profileName = document.querySelector(".profile__name");
 const profileBio = document.querySelector(".profile__bio");
-const imageElement = popupImage.querySelector(".popup__image");
-const imageCaption = popupImage.querySelector(".popup__image-caption");
+export const imageElement = popupImage.querySelector(".popup__image");
+export const imageCaption = popupImage.querySelector(".popup__image-caption");
 
 const buttonOpen = document.querySelector(".profile__button-edit_open-popup");
 const buttonAdd = document.querySelector(".profile__button-add_open-popup");
 
 const listElement = document.querySelector(".gallery__list");
-const galleryTemplate = document.querySelector("#gallery-template").content;
 
 const formEdit = document.forms.profileForm;
 const nameInput = formEdit.elements.nameInput;
@@ -22,18 +27,25 @@ const formAdd = document.forms.addForm;
 const nameGalleryInput = formAdd.elements.nameGalleryInput;
 const linkGalleryInput = formAdd.elements.linkGalleryInput;
 
-//функция удаления фото
-function deleteButtonItem(event) {
-  const buttonElement = event.target;
-  const listItemElement = buttonElement.closest(".gallery__item");
-  listItemElement.remove();
-}
+// селектор карточки
+const galleryTemplate = "#gallery-template";
 
-//функция лайка фото
-function likeButtonItem(event) {
-  const buttonElement = event.target;
-  buttonElement.classList.toggle("gallery__like_active");
-}
+//селекторы валидации
+
+const validationSelectors = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
+//валидация
+const profileFormValidation = new FormValidator(validationSelectors, formEdit);
+const addFormValidation = new FormValidator(validationSelectors, formAdd);
+profileFormValidation.enableValidation();
+addFormValidation.enableValidation();
 
 //функция закрытия попапа по клавише Esc
 function handleEscClose(evt) {
@@ -61,7 +73,7 @@ popups.forEach((popup) => {
 });
 
 //открытие любого попапа
-function openPopup(item) {
+export function openPopup(item) {
   document.addEventListener("keydown", handleEscClose);
   item.classList.add("popup_opened");
 }
@@ -79,41 +91,20 @@ function openPopupGallery(event) {
   openPopup(popupGallery);
 }
 
-//функция открытия попапа просмотра фото
-function openPopupImage(data) {
-  openPopup(popupImage);
-  imageElement.src = data.link;
-  imageElement.alt = data.name;
-  imageCaption.textContent = data.name;
-}
-
+// Создаем карточку
 function createItem(data) {
-  const itemElement =
-    galleryTemplate.cloneNode(true); /*клонируем содержимое template*/
-  const galleryImage = itemElement.querySelector(".gallery__image");
-  const galleryTitle = itemElement.querySelector(".gallery__title");
-  galleryImage.src = data.link; /*передаем значение атрибутов из массива*/
-  galleryTitle.textContent = data.name;
-  galleryImage.alt = data.name;
-  const buttonLikeElement = itemElement.querySelector(".gallery__like");
-  buttonLikeElement.addEventListener("click", likeButtonItem); /*ставим лайк*/
-  const buttonDeletElement = itemElement.querySelector(
-    ".gallery__button-delete"
-  ); /*удаляем фото*/
-  buttonDeletElement.addEventListener("click", deleteButtonItem);
-  /*открываем попап с картинкой*/
-  galleryImage.addEventListener("click", () => openPopupImage(data));
-  return itemElement;
+  const newCard = new Card(data, galleryTemplate).generateCard();
+  return newCard;
 }
 
 //рендерим фото
-function renderItem(itemElement) {
-  listElement.prepend(itemElement);
+function renderItem(newCard) {
+  listElement.prepend(newCard);
 }
 
 //рендерим все фото
 function renderList(data) {
-  data.reverse().forEach((item) => renderItem(createItem(item)));
+  data.reverse().forEach((newCard) => renderItem(createItem(newCard)));
 }
 
 //загружаем 6 карточек из массива на сайт
@@ -145,7 +136,3 @@ buttonAdd.addEventListener("click", openPopupGallery);
 popupGallery.addEventListener("submit", addImage);
 // слушатели событий сохранения изменений в попапе
 formEdit.addEventListener("submit", handleProfileSubmit);
-
-//валидация
-
-enableValidation(validationSelectors);
