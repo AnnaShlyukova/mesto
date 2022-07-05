@@ -93,7 +93,11 @@ function openPopupGallery(event) {
 
 // Создаем карточку
 function createItem(data) {
-  const newCard = new Card(data, galleryTemplate).generateCard();
+  const newCard = new Card(
+    data,
+    galleryTemplate,
+    handleCardClick
+  ).generateCard();
   return newCard;
 }
 
@@ -127,6 +131,12 @@ function handleProfileSubmit(evt) {
   profileName.textContent = nameInput.value;
   profileBio.textContent = bioInput.value;
   closePopup(popupProfile);
+}
+function handleCardClick(name, link) {
+  imageElement.src = link;
+  imageElement.alt = name;
+  imageCaption.textContent = name;
+  openPopup(popupImage);
 }
 
 // слушатели событий открытия попапа, сохранения изменений в попапе

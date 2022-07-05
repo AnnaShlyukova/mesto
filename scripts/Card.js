@@ -2,10 +2,11 @@
 import { imageElement, imageCaption, popupImage, openPopup } from "./index.js";
 
 export class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   // Метод получения копии темплейта №1
@@ -49,11 +50,7 @@ export class Card {
     });
 
     this._galleryImage.addEventListener("click", () => {
-      //№4,3
-      imageElement.src = this._link;
-      imageCaption.textContent = this._name;
-      imageElement.alt = this._name;
-      openPopup(popupImage);
+      this._handleCardClick(this._name, this._link);
     });
   }
 
