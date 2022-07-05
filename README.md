@@ -21,7 +21,8 @@ Mesto - интерактивный одностраничный сайт с ад
 - [Макет в Figma для ПР5](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=50160%3A234)
 - [Макет в Figma для ПР6](https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=1140%3A291)
 - HTML, CSS, БЭМ для адаптивной верстки сайта
-- Java Script базовый синтаксис, обработка событий, валидация форм
+- Java Script базовый синтаксис, обработка событий, валидация форм, работа с ООП
+- подключение Live server
 - Git разработка блоков проекта в отдельных ветках
 
 ---
