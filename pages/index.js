@@ -1,7 +1,7 @@
 // Импорт классов
 
 import { Card } from "../scripts/components/Card.js";
-import { initialCards } from "../scripts/cards.js";
+import { initialCards } from "../scripts/utils/cards.js";
 import { FormValidator } from "../scripts/components/FormValidator.js";
 import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
