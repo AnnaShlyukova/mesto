@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Места России</title>
-    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body>
     <div class="page">
@@ -14,13 +13,17 @@
           <a href="#" target="_blank" class="header__link"
             ><img
               alt="Логотип место России."
-              src="./image/logo_white.svg"
+              src="<%= require('./image/logo_white.svg') %>"
               class="header__logo"
           /></a>
         </header>
         <main class="main">
           <section class="profile">
-            <img alt="Аватар" src="./image/Jack.jpg" class="profile__avatar" />
+            <img
+              alt="Аватар"
+              src="<%= require('./image/Jack.jpg') %>"
+              class="profile__avatar"
+            />
             <div class="profile__info">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
               <button
@@ -138,6 +141,5 @@
         <button type="button" class="gallery__button-delete"></button>
       </li>
     </template>
-    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>
