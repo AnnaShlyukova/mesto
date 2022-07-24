@@ -1,6 +1,3 @@
-//Импорт констант
-import { imageElement, imageCaption, popupImage, openPopup } from "./index.js";
-
 export class Card {
   constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
@@ -20,32 +17,29 @@ export class Card {
     return cardElement;
   }
 
-  // Метод удаления карточки №2
+  // Метод удаления карточки
   _deleteButtonItem(event) {
     event.target.closest(".gallery__item").remove();
   }
 
-  // Метод лайка карточки №3
+  // Метод лайка карточки
   _likeButtonItem(event) {
     event.target.classList.toggle("gallery__like_active");
   }
 
   // Обработчики событий
   _setEventListener() {
-    this._buttonLikeElement = this._element.querySelector(".gallery__like"); //№4,1
+    this._buttonLikeElement = this._element.querySelector(".gallery__like");
     this._buttonDeletElement = this._element.querySelector(
-      //№4,2
       ".gallery__button-delete"
     );
-    this._galleryImage = this._element.querySelector(".gallery__image"); //№4,3
+    this._galleryImage = this._element.querySelector(".gallery__image");
 
     this._buttonLikeElement.addEventListener("click", (event) => {
-      //№4,1
       this._likeButtonItem(event);
     });
 
     this._buttonDeletElement.addEventListener("click", (event) => {
-      //№4,2
       this._deleteButtonItem(event);
     });
 
