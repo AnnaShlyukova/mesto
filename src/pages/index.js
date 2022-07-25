@@ -43,9 +43,9 @@ const validationSelectors = {
 
 //валидация
 const profileFormValidation = new FormValidator(validationSelectors, formEdit);
-const addFormValidation = new FormValidator(validationSelectors, formAdd);
+const formAddValidation = new FormValidator(validationSelectors, formAdd);
 profileFormValidation.enableValidation();
-addFormValidation.enableValidation();
+formAddValidation.enableValidation();
 
 // Создаем карточку
 function createItem(data) {
@@ -62,7 +62,6 @@ const renderList = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      createItem(item);
       renderList.addItem(createItem(item));
     },
   },
@@ -74,30 +73,29 @@ renderList.renderItems();
 const userInfo = new UserInfo(profileName, profileBio);
 
 //попап показа фото с установкой слушателя
-const PopupShowImage = new PopupWithImage(popupImage);
-PopupShowImage.setEventListeners();
+const popupShowImage = new PopupWithImage(popupImage); //popup это ведь существительное. исправила на строчное написание
+popupShowImage.setEventListeners();
 
 //попап редактирования формы профиля  с установкой слушателя
-const PopupEditForm = new PopupWithForm(popupProfile, (evt) => {
+const popupEditForm = new PopupWithForm(popupProfile, (evt) => {
   evt.preventDefault();
-  const newUserInfo = PopupEditForm.getInputValues();
+  const newUserInfo = popupEditForm.getInputValues();
   userInfo.setUserInfo(newUserInfo);
-  PopupEditForm.close();
+  popupEditForm.close();
 });
-PopupEditForm.setEventListeners();
+popupEditForm.setEventListeners();
 
 //попап для добавления фото
-const PopupAddImage = new PopupWithForm(popupGallery, (evt) => {
+const popupAddImage = new PopupWithForm(popupGallery, (evt) => {
   evt.preventDefault();
-  const newImage = PopupAddImage.getInputValues();
+  const newImage = popupAddImage.getInputValues();
   renderList.addItem(createItem(newImage));
-  PopupAddImage.close();
-  evt.target.reset();
+  popupAddImage.close();
 });
-PopupAddImage.setEventListeners();
+popupAddImage.setEventListeners();
 
 function handleCardClick(name, link) {
-  PopupShowImage.open(name, link);
+  popupShowImage.open(name, link);
 }
 
 // слушатели событий открытия попапа, сохранения изменений в попапе
@@ -105,9 +103,9 @@ buttonOpen.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
   nameInput.value = data.name;
   bioInput.value = data.bio;
-  PopupEditForm.open();
+  popupEditForm.open();
 });
 
 buttonAdd.addEventListener("click", () => {
-  PopupAddImage.open();
+  popupAddImage.open();
 });
