@@ -76,20 +76,16 @@ const userInfo = new UserInfo(profileName, profileBio);
 const popupShowImage = new PopupWithImage(popupImage); //popup это ведь существительное. исправила на строчное написание
 popupShowImage.setEventListeners();
 
-//попап редактирования формы профиля  с установкой слушателя
-const popupEditForm = new PopupWithForm(popupProfile, (evt) => {
-  evt.preventDefault();
-  const newUserInfo = popupEditForm.getInputValues();
-  userInfo.setUserInfo(newUserInfo);
+//попап редактирования формы профиля с установкой слушателя
+const popupEditForm = new PopupWithForm(popupProfile, () => {
+  userInfo.setUserInfo(nameInput, bioInput);
   popupEditForm.close();
 });
 popupEditForm.setEventListeners();
 
 //попап для добавления фото
-const popupAddImage = new PopupWithForm(popupGallery, (evt) => {
-  evt.preventDefault();
-  const newImage = popupAddImage.getInputValues();
-  renderList.addItem(createItem(newImage));
+const popupAddImage = new PopupWithForm(popupGallery, (item) => {
+  renderList.addItem(createItem(item));
   popupAddImage.close();
 });
 popupAddImage.setEventListeners();
@@ -103,9 +99,11 @@ buttonOpen.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
   nameInput.value = data.name;
   bioInput.value = data.bio;
+  profileFormValidation.clearError();
   popupEditForm.open();
 });
 
 buttonAdd.addEventListener("click", () => {
+  formAddValidation.clearError();
   popupAddImage.open();
 });

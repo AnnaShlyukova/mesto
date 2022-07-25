@@ -6,7 +6,7 @@ export class Card {
     this._handleCardClick = handleCardClick;
   }
 
-  // Метод получения копии темплейта №1
+  // Метод получения копии темплейта
   _getTemplate() {
     const cardElement = document
       .querySelector(this._cardSelector)
@@ -18,13 +18,14 @@ export class Card {
   }
 
   // Метод удаления карточки
-  _deleteButtonItem(event) {
-    event.target.closest(".gallery__item").remove();
+  _deleteButtonItem() {
+    this._element.remove();
+    this._element = null;
   }
 
   // Метод лайка карточки
-  _likeButtonItem(event) {
-    event.target.classList.toggle("gallery__like_active");
+  _likeButtonItem() {
+    this._buttonLikeElement.classList.toggle("gallery__like_active");
   }
 
   // Обработчики событий

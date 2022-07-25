@@ -59,10 +59,8 @@ export class FormValidator {
   _toggleButtonState() {
     //если есть хотя бы одно невалидное поле делаем кнопку неактивной
     if (this._hasInvalidInput(this._inputList)) {
-      if (!this._buttonElement.classList.contains(this._inactiveButtonClass)) {
-        this._buttonElement.classList.add(this._inactiveButtonClass);
-        this._buttonElement.setAttribute("disabled", true);
-      }
+      this._buttonElement.classList.add(this._inactiveButtonClass);
+      this._buttonElement.setAttribute("disabled", true);
     } else {
       //если все валидно, то делаем активной
       this._buttonElement.removeAttribute("disabled");
@@ -71,16 +69,11 @@ export class FormValidator {
   }
 
   //Метод удаления ошибки из формы и делаем кнопку неактивной
-  _clearError() {
-    const errorSpan = this._formElement.querySelectorAll(
-      `.${this._errorClass}`
-    );
-    const errorInputs = this._formElement.querySelectorAll(
-      `.${this._inputErrorClass}`
-    );
-    this._clearClassError(errorSpan, this._errorClass);
-    this._clearClassError(errorInputs, this._inputErrorClass);
-    this._inactiveButton();
+  clearError() {
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    });
+    this._toggleButtonState();
   }
 
   //Метод удаления класса ошибки с элементов
@@ -93,7 +86,6 @@ export class FormValidator {
   //Метод неактивной кнопки
   _inactiveButton() {
     this._buttonElement.classList.add(this._inactiveButtonClass);
-    this._buttonElement.setAttribute("disabled", "disabled");
   }
 
   //Метод добавления обработчиков сразу всем полям формы
@@ -108,15 +100,10 @@ export class FormValidator {
         this._toggleButtonState();
       });
     });
-    //добавляем слушателя событий на форму для очистки ошибок и отключения кнопки
-    this._formElement.addEventListener("reset", () => this._clearError());
   }
 
   //Публичный метод валидации формы
   enableValidation() {
-    this._formElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-    });
     this._setEventListeners(); //вызываем для всех форм функцию добавления обработчиков всех полей формы
   }
 }
