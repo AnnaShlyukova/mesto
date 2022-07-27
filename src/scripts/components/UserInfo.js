@@ -13,8 +13,8 @@ export default class UserInfo {
   }
 
   //публичный метод для приема новых данных от пользователя
-  setUserInfo(nameInput, bioInput) {
-    this._nameElement.textContent = nameInput.value;
-    this._bioElement.textContent = bioInput.value;
+  setUserInfo(data) {
+    this._nameElement.textContent = data.name;
+    this._bioElement.textContent = data.bio;
   }
 }

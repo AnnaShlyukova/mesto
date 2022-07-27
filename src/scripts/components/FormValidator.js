@@ -76,18 +76,6 @@ export class FormValidator {
     this._toggleButtonState();
   }
 
-  //Метод удаления класса ошибки с элементов
-  _clearClassError(elements, className) {
-    elements.forEach((span) => {
-      span.classList.remove(className);
-    });
-  }
-
-  //Метод неактивной кнопки
-  _inactiveButton() {
-    this._buttonElement.classList.add(this._inactiveButtonClass);
-  }
-
   //Метод добавления обработчиков сразу всем полям формы
   _setEventListeners() {
     //вызываем функцию проверки состояния кнопки при первой загрузки страницы

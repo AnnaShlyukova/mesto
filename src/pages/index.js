@@ -77,16 +77,26 @@ const popupShowImage = new PopupWithImage(popupImage); //popup это ведь �
 popupShowImage.setEventListeners();
 
 //попап редактирования формы профиля с установкой слушателя
-const popupEditForm = new PopupWithForm(popupProfile, () => {
-  userInfo.setUserInfo(nameInput, bioInput);
-  popupEditForm.close();
+const popupEditForm = new PopupWithForm({
+  popupSelector: popupProfile,
+  handleFormSubmit: (data) => {
+    data = {
+      name: nameInput.value,
+      bio: bioInput.value,
+    };
+    userInfo.setUserInfo(data);
+    popupEditForm.close();
+  },
 });
 popupEditForm.setEventListeners();
 
 //попап для добавления фото
-const popupAddImage = new PopupWithForm(popupGallery, (item) => {
-  renderList.addItem(createItem(item));
-  popupAddImage.close();
+const popupAddImage = new PopupWithForm({
+  popupSelector: popupGallery,
+  handleFormSubmit: (item) => {
+    renderList.addItem(createItem(item));
+    popupAddImage.close();
+  },
 });
 popupAddImage.setEventListeners();
 
