@@ -8,6 +8,7 @@ import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
 import UserInfo from "../scripts/components/UserInfo.js";
 import Section from "../scripts/components/Section.js";
+import Api from "../scripts/components/Api";
 
 //задаю переменные
 const popupProfile = ".popup_content_profile";
@@ -15,6 +16,8 @@ const popupGallery = ".popup_content_gallery";
 const popupImage = ".popup_content_image-view";
 const profileName = ".profile__name";
 const profileBio = ".profile__bio";
+
+const avatarPopup = ".popup-avatar";
 
 const buttonOpen = document.querySelector(".profile__button-edit_open-popup");
 const buttonAdd = document.querySelector(".profile__button-add_open-popup");
@@ -47,6 +50,16 @@ const formAddValidation = new FormValidator(validationSelectors, formAdd);
 profileFormValidation.enableValidation();
 formAddValidation.enableValidation();
 
+const config = {
+  url: "https://nomoreparties.co/v1/cohort-46/",
+  headers: {
+    authorization: "fca940e1-04e1-4b78-84e8-f1d5400ed073",
+    "Content-Type": "application/json",
+  },
+};
+
+const api = new Api(config);
+
 // Создаем карточку
 function createItem(data) {
   const newCard = new Card(
@@ -70,7 +83,7 @@ const renderList = new Section(
 renderList.renderItems();
 
 //экземпляр класса с отображением информации о пользователе
-const userInfo = new UserInfo(profileName, profileBio);
+const userInfo = new UserInfo(profileName, profileBio, avatarPopup);
 
 //попап показа фото с установкой слушателя
 const popupShowImage = new PopupWithImage(popupImage); //popup это ведь существительное. исправила на строчное написание

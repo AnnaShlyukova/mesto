@@ -19,11 +19,13 @@
         </header>
         <main class="main">
           <section class="profile">
-            <img
+            <div
+              class="profile__photo>"
+              <img
               alt="Аватар"
               src="<%= require('./image/Jack.jpg') %>"
               class="profile__avatar"
-            />
+            ></div>
             <div class="profile__info">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
               <button
@@ -44,6 +46,29 @@
         <footer class="footer">
           <p class="footer__copyright">©&nbsp;2022 Mesto Russia</p>
         </footer>
+        <!--попап редактирования аватара-->
+        <section class="popup popup-avatar">
+          <div class="popup__container">
+            <button class="popup__button-close" type="button"></button>
+            <form name="avatarEdit" action="#" class="popup__form">
+              <h3 class="popup__title">Обновить аватар</h3>
+              <input
+                type="url"
+                class="popup__input popup__input_type_bio"
+                id="avatar"
+                name="avatar"
+                required
+              />
+              <span class="popup__error"></span>
+              <button
+                class="popup__button popup__button_disabled"
+                type="submit"
+              >
+                Сохранить
+              </button>
+            </form>
+          </div>
+        </section>
         <!--попап редактирования профиля-->
         <section class="popup popup_content_profile">
           <div class="popup__container">
@@ -119,6 +144,21 @@
             </form>
           </div>
         </section>
+        <!--попап удаления картинки-->
+        <section class="popup popup_delete">
+          <div class="popup popup__container">
+            <button class="popup__button-close" type="button"></button>
+            <form name="popupDelete" class="popup__form">
+              <h3 class="popup__title">Вы уверены?</h3>
+              <button
+                class="popup__button popup__button_disabled"
+                type="submit"
+              >
+                Да
+              </button>
+            </form>
+          </div>
+        </section>
         <!--попап просмотра картинки-->
         <section class="popup popup_content_image-view">
           <div class="popup__card">
@@ -137,6 +177,7 @@
         <div class="gallery__wrapper">
           <h2 class="gallery__title"></h2>
           <button type="button" class="gallery__like"></button>
+          <p class="gallery__like-count">0</p>
         </div>
         <button type="button" class="gallery__button-delete"></button>
       </li>
