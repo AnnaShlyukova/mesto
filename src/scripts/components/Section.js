@@ -1,25 +1,24 @@
 export default class Section {
-  constructor({ items, renderer }, containerSelector) {
-    this._items = items;
+  constructor(renderer, containerSelector) {
     this._renderer = renderer;
     this._container = document.querySelector(containerSelector);
   }
 
-  clear() {
-    this._container.innerHTML = "";
-  }
+  // clear() {
+  // this._container.innerHTML = "";
+  //}
 
   //публичный метод добавления элементов в контейнер
-  addItem(element) {
-    this._container.prepend(element);
+  addItem(card) {
+    this._container.prepend(card);
   }
 
   //публичный метод отрисовки всех элементов
-  renderItems() {
-    this.clear();
+  renderItems(data) {
+    //this.clear();
 
-    this._items.reverse().forEach((item) => {
-      this._renderer(item);
+    data.reverse().forEach((item) => {
+      this.addItem(this._renderer(item));
     });
   }
 }

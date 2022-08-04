@@ -19,20 +19,20 @@
         </header>
         <main class="main">
           <section class="profile">
-            <div
-              class="profile__photo>"
+            <div class="profile__photo">
               <img
-              alt="Аватар"
-              src="<%= require('./image/Jack.jpg') %>"
-              class="profile__avatar"
-            ></div>
+                alt="Аватар"
+                src="<%= require('./image/Jack.jpg') %>"
+                class="profile__avatar"
+              />
+            </div>
             <div class="profile__info">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <h1 class="profile__name"></h1>
               <button
                 type="button"
                 class="profile__button-edit profile__button-edit_open-popup"
               ></button>
-              <p class="profile__bio">Исследователь океана</p>
+              <p class="profile__bio"></p>
             </div>
             <button
               type="button"
@@ -59,7 +59,7 @@
                 name="avatar"
                 required
               />
-              <span class="popup__error"></span>
+              <span class="popup__error" id="avatar-error"></span>
               <button
                 class="popup__button popup__button_disabled"
                 type="submit"
@@ -145,10 +145,10 @@
           </div>
         </section>
         <!--попап удаления картинки-->
-        <section class="popup popup_delete">
+        <section class="popup popup_confirm">
           <div class="popup popup__container">
             <button class="popup__button-close" type="button"></button>
-            <form name="popupDelete" class="popup__form">
+            <form name="popupConfirm" class="popup__form">
               <h3 class="popup__title">Вы уверены?</h3>
               <button
                 class="popup__button popup__button_disabled"
@@ -176,8 +176,10 @@
         <img src="#" alt="" class="gallery__image" />
         <div class="gallery__wrapper">
           <h2 class="gallery__title"></h2>
-          <button type="button" class="gallery__like"></button>
-          <p class="gallery__like-count">0</p>
+          <div class="gallery__like-container">
+            <button type="button" class="gallery__like"></button>
+            <p class="gallery__like-count">0</p>
+          </div>
         </div>
         <button type="button" class="gallery__button-delete"></button>
       </li>

@@ -1,8 +1,8 @@
 export default class UserInfo {
-  constructor(nameSelector, bioSelector, avatarFoto) {
+  constructor(nameSelector, bioSelector, avatarSelector) {
     this._nameElement = document.querySelector(nameSelector);
     this._bioElement = document.querySelector(bioSelector);
-    this.avatar = document.querySelector(avatarFoto);
+    this.avatar = document.querySelector(avatarSelector);
   }
 
   //публичный метод для возврата объекта с данными пользователя
@@ -16,7 +16,7 @@ export default class UserInfo {
   //публичный метод для приема новых данных от пользователя
   setUserInfo(data) {
     this._nameElement.textContent = data.name;
-    this._bioElement.textContent = data.bio;
+    this._bioElement.textContent = data.about;
     this.setAvatarInfo(data.avatar);
   }
 

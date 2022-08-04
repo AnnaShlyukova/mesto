@@ -1,8 +1,6 @@
 .profile__photo:hover {
-  background: url(../../../image/pen.svg);
+  background: url(../../../image/pen_avatar.svg);
   background-repeat: no-repeat;
   background-position: center;
-  width: 26px;
-  height: 26px;
   cursor: pointer;
 }

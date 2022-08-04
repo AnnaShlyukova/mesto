@@ -17,6 +17,7 @@ export default class Api {
       headers: this._headers,
     }).then(this._checkResponse);
   }
+
   //загрузка информации о профиле
   getUserInfo() {
     return fetch(`${this._url}users/me`, {
@@ -38,7 +39,7 @@ export default class Api {
   }
 
   //добавляем карточку
-  addUserCard({ name, link }) {
+  addCard({ name, link }) {
     return fetch(`${this._url}cards`, {
       method: "POST",
       headers: this._headers,
