@@ -20,11 +20,7 @@
         <main class="main">
           <section class="profile">
             <div class="profile__photo">
-              <img
-                alt="Аватар"
-                src="<%= require('./image/Jack.jpg') %>"
-                class="profile__avatar"
-              />
+              <img alt="Аватар" src="" class="profile__avatar" />
             </div>
             <div class="profile__info">
               <h1 class="profile__name"></h1>
@@ -146,16 +142,11 @@
         </section>
         <!--попап удаления картинки-->
         <section class="popup popup_confirm">
-          <div class="popup popup__container">
+          <div class="popup__container">
             <button class="popup__button-close" type="button"></button>
             <form name="popupConfirm" class="popup__form">
-              <h3 class="popup__title">Вы уверены?</h3>
-              <button
-                class="popup__button popup__button_disabled"
-                type="submit"
-              >
-                Да
-              </button>
+              <h3 class="popup__title popup__title_position">Вы уверены?</h3>
+              <button class="popup__button" type="submit">Да</button>
             </form>
           </div>
         </section>

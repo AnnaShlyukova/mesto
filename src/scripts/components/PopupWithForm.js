@@ -26,7 +26,7 @@ export default class PopupWithForm extends Popup {
     });
   }
 
-  //перезапишем родительский метод закрытия попапа, для сбрасывалась форма
+  //перезапишем родительский метод закрытия попапа, для сбрасывания формы
   close() {
     super.close();
     this._form.reset();

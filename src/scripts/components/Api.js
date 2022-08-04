@@ -93,4 +93,11 @@ export default class Api {
       }),
     }).then(this._checkResponse);
   }
+  //подсчет лайка
+  changeLikeCard(id, isLiked) {
+    return fetch(`${this._url}cards/likes/${id}`, {
+      method: isLiked ? "DELETE" : "PUT",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
 }

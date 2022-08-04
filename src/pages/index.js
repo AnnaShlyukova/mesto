@@ -23,6 +23,7 @@ const avatarPopup = document.querySelector(".popup-avatar");
 //const avatarForm = avatarPopup.querySelector(".popup__form");
 const avatarButton = avatarPopup.querySelector(".popup__button");
 
+const profileAvatar = ".profile__avatar";
 const avatarEditPhoto = document.querySelector(".profile__photo");
 
 const confirmSelector = ".popup_confirm";
@@ -91,12 +92,13 @@ formAddValidation.enableValidation();
 const createItem = (data) => {
   const newCard = new Card(
     data,
-
-    () => {
-      newCard.handleLikeClick();
-    },
-    () => {
-      newCard.handleDeleteCard();
+    (info) => {
+      api
+        .changeLikeCard(info.idCard(), info.checkLike())
+        .then((data) => {
+          info.updateLikes(data);
+        })
+        .catch((err) => console.log(err));
     },
     () => {
       popupConfirm.handleConfirm(() => {
@@ -112,6 +114,9 @@ const createItem = (data) => {
       });
       popupConfirm.open();
     },
+    (name, link) => {
+      popupShowImage.open(name, link);
+    },
     userId,
     galleryTemplate
   );
@@ -122,7 +127,7 @@ const createItem = (data) => {
 const renderList = new Section(createItem, listSelector);
 
 //экземпляр класса с отображением информации о пользователе
-const userInfo = new UserInfo(profileName, profileBio, avatarSelector);
+const userInfo = new UserInfo(profileName, profileBio, profileAvatar);
 
 //попап показа фото
 const popupShowImage = new PopupWithImage(imageSelector);
@@ -137,8 +142,8 @@ const popupEditForm = new PopupWithForm({
     profileButton.textContent = "Сохранение...";
     api
       .setUserInfo({
-        name: data.name,
-        about: data.about,
+        name: data.nameInput,
+        about: data.bioInput,
       })
       .then((data) => {
         userInfo.setUserInfo(data);
@@ -179,8 +184,9 @@ const popupAvatar = new PopupWithForm({
   handleFormSubmit: (item) => {
     avatarButton.textContent = "Сохранение...";
     api
-      .addUserAvatar({ avatar: item.avatar_link })
+      .addUserAvatar({ avatar: item.avatar })
       .then((data) => {
+        console.log(data);
         userInfo.setAvatarInfo(data.avatar);
         popupAvatar.close();
       })
@@ -227,5 +233,4 @@ buttonAddImage.addEventListener("click", () => {
 
 avatarEditPhoto.addEventListener("click", () => {
   popupAvatar.open();
-  avatarFormValidation.clearError();
 });
