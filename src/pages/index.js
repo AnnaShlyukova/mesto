@@ -94,7 +94,7 @@ const createItem = (data) => {
     data,
     (info) => {
       api
-        .changeLikeCard(info.idCard(), info.checkLike())
+        .changeLikeCard(info.setIdCard(), info.checkLike())
         .then((data) => {
           info.updateLikes(data);
         })
@@ -139,7 +139,7 @@ const popupConfirm = new PopupWithConfirmation(confirmSelector);
 const popupEditForm = new PopupWithForm({
   popupSelector: profileSelector,
   handleFormSubmit: (data) => {
-    profileButton.textContent = "Сохранение...";
+    popupEditForm.renderLoading(true);
     api
       .setUserInfo({
         name: data.nameInput,
@@ -153,7 +153,7 @@ const popupEditForm = new PopupWithForm({
         console.log(err);
       })
       .finally(() => {
-        profileButton.textContent = "Сохранить";
+        popupEditForm.renderLoading(false);
       });
   },
 });
@@ -162,7 +162,7 @@ const popupEditForm = new PopupWithForm({
 const popupAddImage = new PopupWithForm({
   popupSelector: gallerySelector,
   handleFormSubmit: (item) => {
-    galleryButton.textContent = "Сохранение...";
+    popupAddImage.renderLoading(true);
     api
       .addCard({ name: item.name, link: item.link })
       .then((data) => {
@@ -173,7 +173,7 @@ const popupAddImage = new PopupWithForm({
         console.log(err);
       })
       .finally(() => {
-        galleryButton.textContent = "Сохранить";
+        popupAddImage.renderLoading(false);
       });
   },
 });
@@ -182,7 +182,7 @@ const popupAddImage = new PopupWithForm({
 const popupAvatar = new PopupWithForm({
   popupSelector: avatarSelector,
   handleFormSubmit: (item) => {
-    avatarButton.textContent = "Сохранение...";
+    popupAvatar.renderLoading(true);
     api
       .addUserAvatar({ avatar: item.avatar })
       .then((data) => {
@@ -194,7 +194,7 @@ const popupAvatar = new PopupWithForm({
         console.log(err);
       })
       .finally(() => {
-        avatarButton.textContent = "Сохранить";
+        popupAvatar.renderLoading(false);
       });
   },
 });
@@ -233,4 +233,5 @@ buttonAddImage.addEventListener("click", () => {
 
 avatarEditPhoto.addEventListener("click", () => {
   popupAvatar.open();
+  avatarFormValidation.clearError();
 });

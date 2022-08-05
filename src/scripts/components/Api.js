@@ -61,28 +61,6 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  //ставим лайк
-  setlike(id) {
-    return fetch(`${this._url}cards/likes/${id}`, {
-      method: "PUT",
-      headers: this._headers,
-      body: JSON.stringify({
-        _id: `${id}`,
-      }),
-    }).then(this._checkResponse);
-  }
-
-  //удаляем лайк
-  removeLike(id) {
-    return fetch(`${this._url}cards/likes/${id}`, {
-      method: "DELETE",
-      headers: this._headers,
-      body: JSON.stringify({
-        _id: `${id}`,
-      }),
-    }).then(this._checkResponse);
-  }
-
   //обновление аватара
   addUserAvatar({ avatar }) {
     return fetch(`${this._url}users/me/avatar`, {

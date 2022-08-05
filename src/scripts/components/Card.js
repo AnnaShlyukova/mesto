@@ -64,7 +64,7 @@ export class Card {
     return this._buttonLikeElement.classList.contains("gallery__like_active");
   }
 
-  idCard() {
+  setIdCard() {
     this._element.dataset.id = this._id;
     this._cardId = this._element.dataset.id;
     console.log(this._id);
@@ -106,7 +106,7 @@ export class Card {
   // Получаем готовую карточку с данными
   createCard() {
     //this._element = this._getTemplate();
-    this.idCard();
+    this.setIdCard();
     this._isLiked();
     this._setEventListener();
     this._deleteIcon();
